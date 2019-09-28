@@ -7,8 +7,12 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func init() {
+	UserDao = &userDao{}
+}
+
 func TestGetUserNoUserFound(t *testing.T) {
-	user, err := GetUser(0)
+	user, err := UserDao.GetUser(0)
 
 	assert.Nil(t, user)
 	assert.NotNil(t, err)
@@ -19,7 +23,7 @@ func TestGetUserNoUserFound(t *testing.T) {
 }
 
 func TestGetUserNoError(t *testing.T) {
-	user, err := GetUser(123)
+	user, err := UserDao.GetUser(123)
 
 	assert.Nil(t, err)
 	assert.NotNil(t, user)
