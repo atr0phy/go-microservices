@@ -1,6 +1,8 @@
 package main
 
-import "github.com/atr0phy/go-microservices/internal/api/app"
+import (
+	"github.com/atr0phy/go-microservices/internal/api/app"
+)
 
 func main() {
 	router := app.SetupRouter()
